@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">Web<span>Flow</span></h2>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
+
+            <button class="theme-btn" id="themeBtn"
+                aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="tagline">WELCOME TO THE FUTURE</p>
+                <h1>Build Something <span>Amazing.</span></h1>
+                <p class="description" id="message">
+                    Create beautiful digital experiences with modern web design.
+                </p>
+
+                <div class="buttons">
+                    <button class="primary-btn" id="changeBtn">
+                        Explore More →
+                    </button>
+                    <a href="#about" class="secondary-btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="circle circle-one"></div>
+                <div class="circle circle-two"></div>
+                <div class="glass-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>Turn your ideas into reality.</p>
+                    <div class="progress">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <small>Creativity in progress...</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="services">
+            <h2>What Makes Us Different?</h2>
+            <p class="section-description">
+                Everything you need to create a modern online experience.
+            </p>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Performance</h3>
+                    <p>Enjoy a smooth and lightweight user experience.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Modern Design</h3>
+                    <p>Clean layouts, attractive colors, and smooth animations.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Layout</h3>
+                    <p>Looks great on desktops, tablets, and mobile devices.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2>Ready to Get Started?</h2>
+            <p>Great ideas begin with a single step.</p>
+            <a href="#home" class="primary-btn">Back to Top ↑</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 WebFlow. Designed with creativity.</p>
+    </footer>
+
+    <script>
+        // Toggle dark and light themes
+        const themeBtn = document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+
+            themeBtn.textContent =
+                document.body.classList.contains("dark-mode")
+                    ? "☀️"
+                    : "🌙";
+        });
+
+        // Change the hero message dynamically
+        const messages = [
+            "Create beautiful digital experiences with modern web design.",
+            "Bring your creative ideas to life with interactive technology.",
+            "Build responsive websites that look amazing on every screen.",
+            "Your next great project starts right here."
+        ];
+
+        let messageIndex = 0;
+
+        document.getElementById("changeBtn").addEventListener("click", () => {
+            messageIndex = (messageIndex + 1) % messages.length;
+
+            document.getElementById("message").textContent =
+                messages[messageIndex];
+        });
+    </script>
+
+</body>
+</html>
